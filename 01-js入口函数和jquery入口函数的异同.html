@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-js入口函数和jquery入口函数的异同</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        JS原生入口函数与JQuery入口函数的区别：
+        区别一：
+        JS原生入口函数会等到DOM元素加载完毕，并且图片也加载完毕再执行；
+        JQuery入口函数会等到DOM元素加载完毕，但是不会等到图片也加载完毕就执行。
+        区别二：
+        如果编写了多个原生JS的入口函数，后面编写的会覆盖前面编写的；
+        如果编写多个JQuery入口函数，后面编写的不会覆盖前面编写的。
+        */
+
+        /*// JS原生的入口函数
+        window.onload = function () {
+            //通过JS原生入口函数可以拿到DOM元素
+            var img = document.getElementsByTagName("img")[0];
+            console.log(img);
+            //通过JS原生入口函数可以拿到图片的宽高
+            var width = window.getComputedStyle(img).width;
+            console.log("onload: ", width);
+        }
+
+        // １. JQuery入口函数
+        $(document).ready(function () {
+            //通过JQuery入口函数也可以拿到DOM元素
+            var $img = $("img");
+            console.log($img);
+            //通过JQuery入口函数不可以拿到图片的宽高
+            var $width = $img.width();
+            console.log("ready: ", $width);
+        });*/
+
+        /*window.onload = function () {
+            alert("1");
+        }
+        window.onload = function () {
+            alert("2");
+        }
+
+        $(document).ready(function () {
+            alert("1");
+        });
+        $(document).ready(function () {
+            alert("2");
+        });*/
+    </script>
+</head>
+<body>
+    <img src="images/test.jpg">
+</body>
+</html>
